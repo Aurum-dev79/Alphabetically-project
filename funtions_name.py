@@ -2,9 +2,16 @@ def add_name(name):
     try: 
        with open('directory.txt','a') as file:
            file.write(name+ "\n")
+ 
+           return True
+            
     except FileNotFoundError:
         with open('directory.txt', 'w') as file:
             file.write(name + "\n")
+            return True
+    except Exception as e:
+        print("unknow error", e)
+        
 
 
 def delete_name(name):
@@ -17,16 +24,17 @@ def delete_name(name):
                 for element in lines:
                     file.write(element + "\n")
                 file.truncate()
+                
                 return True  
             else:
                 print("Do not find the name")
-                return False  
+               
     except FileNotFoundError:
         print("The file does'nt exist ")
-        return False
+        
     except Exception as e:
         print("unknow error", e)
-        return False
+        
     
 
 def edit_name(name):
@@ -42,15 +50,18 @@ def edit_name(name):
                 for element in lines:
                     file.write(element + '\n')
                 file.truncate()
+                
                 return True    
 
             else:
              print("do not find the name")
-             return False
+
 
     except FileNotFoundError:
         print("The file does'nt exist")       
-        return False 
+     
+    except Exception as e:
+        print("unknow error", e)
     
 
 
@@ -63,13 +74,19 @@ def sort_name():
             for element in lines: 
                 file.write(element + '\n')
             file.truncate()
-
+      
+            return True
 
 
 
 
     except FileNotFoundError:
-        print("The file does'nt exist")    
+        print("The file does'nt exist")  
+        
+
+    except Exception as e:
+        print("unknow error", e)
+       
 
         
         
